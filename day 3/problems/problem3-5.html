@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="#">
+      <input type="text" id="text" />
+      <input type="submit" value="Add" id="submit" />
+      <div>
+        <ul></ul>
+      </div>
+    </form>
+
+    <script>
+      const textTag = document.querySelector("#text");
+      const subTag = document.querySelector("#submit");
+      const ulTag = document.querySelector("ul");
+
+      subTag.addEventListener("click", function (event) {
+        event.preventDefault();
+        const data = textTag.value;
+        if (data.trim()) {
+          const liTag = document.createElement("li");
+          liTag.innerText = data;
+          ulTag.appendChild(liTag);
+
+          textTag.value = "";
+          textTag.focus();
+        } else {
+          alert("값을 입력해주세요.");
+        }
+      });
+    </script>
+  </body>
+</html>
