@@ -14,7 +14,28 @@ const MY_API_KEY = "c73dd19cfc3601b28166646f4809aa2b";
 
 let prev;
 
+const sentinel = document.createElement('div')
+sentinel.id = 'sentinel'
+createObserver(sentinel)
+
+function createObserver(target) {
+  const getMoreAlbums = (entries) => {
+    entries.forEach(entrie => {
+      if (entrie.isIntersecting) {
+        page += 1
+        ser()
+      }
+    })
+  }
+  
+  const observer = new IntersectionObserver(getMoreAlbums);
+  observer.observe(target); 
+}
+
+
 function ser(event) {
+  const loadingList = document.querySelector('.search-result--loadingList')
+  loadingList.style.display = 'block'
   if (prev === inputTag.value) {
     return;
   }
@@ -75,7 +96,6 @@ function ser(event) {
         window.location.href = song.url;
       });
 
-      resultTag.append(card);
     }
   });
 }
@@ -88,4 +108,11 @@ inputTag.addEventListener("keypress", (e) => {
   }
 });
 
-console.log(inputTag);
+const option = {
+  root: null,
+  threshold: 0.5,
+}
+
+const callback = (entries, observer) => {
+  en
+}
