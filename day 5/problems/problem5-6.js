@@ -1,7 +1,10 @@
-axios.get('https://api.example.com/data')
-	.then(function (response) {
-	console.log((response))
-})
+// axios.get('https://api.example.com/data')
+// 	.then(function (response) {
+// 	console.log((response))
+// })
+
+const a = 10
+console.log(a)
 
 // 동기
 // 모든 일을 순서대로 하나씩 처리하는 것
